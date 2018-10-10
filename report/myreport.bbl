@@ -17,92 +17,126 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
-  \entry{Mays:1991:CBS:117644.117651}{article}{}
+  \entry{cuestadetecting}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CJE}{%
+         family={Cuesta},
+         familyi={C\bibinitperiod},
+         given={Javier\bibnamedelima Echevarr{\'\i}a},
+         giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CJE1}
+    \strng{fullhash}{CJE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Detecting Russian Troll Tweets from the 2016 US}
+  \endentry
+
+  \entry{seah2015troll}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=SCW}{%
+         family={Seah},
+         familyi={S\bibinitperiod},
+         given={Chun\bibnamedelima Wei},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=CHL}{%
+         family={Chieu},
+         familyi={C\bibinitperiod},
+         given={Hai\bibnamedelima Leong},
+         giveni={H\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=CKMA}{%
+         family={Chai},
+         familyi={C\bibinitperiod},
+         given={Kian Ming\bibnamedelima A},
+         giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim
+  A\bibinitperiod},
+      }}%
+      {{hash=TLN}{%
+         family={Teow},
+         familyi={T\bibinitperiod},
+         given={Loo-Nin},
+         giveni={L\bibinitperiod-N\bibinitperiod},
+      }}%
+      {{hash=YLW}{%
+         family={Yeong},
+         familyi={Y\bibinitperiod},
+         given={Lee\bibnamedelima Wei},
+         giveni={L\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{SCWCHLCKMA+1}
+    \strng{fullhash}{SCWCHLCKMATLNYLW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Information Fusion (Fusion), 2015 18th International
+  Conference on}
+    \field{pages}{792\bibrangedash 799}
+    \field{title}{Troll detection by domain-adapting sentiment analysis}
+    \field{year}{2015}
+  \endentry
+
+  \entry{boatwrighttroll}{article}{}
     \name{author}{3}{}{%
-      {{hash=ME}{%
-         family={Mays},
-         familyi={M\bibinitperiod},
-         given={Eric},
-         giveni={E\bibinitperiod},
+      {{hash=BBC}{%
+         family={Boatwright},
+         familyi={B\bibinitperiod},
+         given={Brandon\bibnamedelima C},
+         giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod},
       }}%
-      {{hash=DFJ}{%
-         family={Damerau},
-         familyi={D\bibinitperiod},
-         given={Fred\bibnamedelima J.},
-         giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+      {{hash=LDL}{%
+         family={Linvill},
+         familyi={L\bibinitperiod},
+         given={Darren\bibnamedelima L},
+         giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod},
       }}%
-      {{hash=MRL}{%
-         family={Mercer},
-         familyi={M\bibinitperiod},
-         given={Robert\bibnamedelima L.},
-         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Pergamon Press, Inc.}%
-    }
-    \strng{namehash}{MEDFJMRL1}
-    \strng{fullhash}{MEDFJMRL1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1016/0306-4573(91)90066-U
-    \endverb
-    \field{issn}{0306-4573}
-    \field{number}{5}
-    \field{pages}{517\bibrangedash 522}
-    \field{title}{Context Based Spelling Correction}
-    \verb{url}
-    \verb http://dx.doi.org/10.1016/0306-4573(91)90066-U
-    \endverb
-    \field{volume}{27}
-    \list{location}{1}{%
-      {Tarrytown, NY, USA}%
-    }
-    \field{journaltitle}{Inf. Process. Manage.}
-    \field{month}{09}
-    \field{year}{1991}
-  \endentry
-
-  \entry{WikiMisspell}{incollection}{}
-    \name{author}{1}{}{%
-      {{hash=W}{%
-         family={{Wikipedia contributors}},
+      {{hash=WPL}{%
+         family={Warren},
          familyi={W\bibinitperiod},
+         given={Patrick\bibnamedelima L},
+         giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod},
       }}%
     }
-    \strng{namehash}{W1}
-    \strng{fullhash}{W1}
+    \strng{namehash}{BBCLDLWPL1}
+    \strng{fullhash}{BBCLDLWPL1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Wikipedia, The Free Encyclopedia}
-  \field{note}{https://en.wikipedia.org/w/index.php?title=\\Wikipedia:Lists\_of\_common\_misspellings\&\\oldid=813410985}
-    \field{title}{{Wikipedia:Lists} of common misspellings}
-    \field{year}{n.d.}
+    \field{title}{Troll Factories: The Internet Research Agency and
+  State-Sponsored Agenda Building}
   \endentry
 
-  \entry{InfromationRetrieval}{book}{}
-    \name{author}{1}{}{%
-      {{hash=RCJV}{%
-         family={Rijsbergen},
-         familyi={R\bibinitperiod},
-         given={C.\bibnamedelima J.\bibnamedelima Van},
-         giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim
-  V\bibinitperiod},
+  \entry{john1995estimating}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=JGH}{%
+         family={John},
+         familyi={J\bibinitperiod},
+         given={George\bibnamedelima H},
+         giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Langley},
+         familyi={L\bibinitperiod},
+         given={Pat},
+         giveni={P\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Butterworths}%
+    \list{organization}{1}{%
+      {Morgan Kaufmann Publishers Inc.}%
     }
-    \strng{namehash}{RCJV1}
-    \strng{fullhash}{RCJV1}
+    \strng{namehash}{JGHLP1}
+    \strng{fullhash}{JGHLP1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Information Retrieval}
-    \list{location}{1}{%
-      {London}%
-    }
-    \field{year}{1979}
+    \field{booktitle}{Proceedings of the Eleventh conference on Uncertainty in
+  artificial intelligence}
+    \field{pages}{338\bibrangedash 345}
+    \field{title}{Estimating continuous distributions in Bayesian classifiers}
+    \field{year}{1995}
   \endentry
 \enddatalist
 \endinput

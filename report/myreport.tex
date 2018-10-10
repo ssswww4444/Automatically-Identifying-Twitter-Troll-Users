@@ -19,12 +19,15 @@
 
 \section{Introduction}
 
-\paragraph{}
-The goal of this report is to demonstrate the knowledge about the problem of automatically classifying the trolls based on the text of the tweets. In this report, a knowledge problems will be raised, and a few machine learning methods will be discussed and applied over a dataset comprising a number of "troll" tweets to gain knowledge about this problem.
+\paragraph{} The recent troll detection system are mainly based on Recurrent Neural Networks (RNN) with bidirectional Long Short-Term Memory (LSTM) \cite{cuestadetecting}, Support Vector Machine (SVM) with sentiment analysis \cite{seah2015troll}, etc.
+
+The goal of this report is to demonstrate the knowledge about how to classify the troll tweets based on their text automatically. Each of the tweets could be classified as one of the three classes: ``LeftTroll", ``RightTroll", or ``OtherTroll", where the left and right troll users corresponds to the people who support left-wing or right-wing in US politics.
+
+In this report, two knowledge problems will be raised, and a few machine learning methods will be discussed and applied over a dataset comprising a number of ``troll" tweets to gain knowledge about the problems.
 
 \subsection{Dataset}
 \paragraph{}
-The dataset used in this report involves 223K tweets published by 175 users, randomly chosen from 3 million Russian Troll tweets. The tweets have been preprocessed by removing the non-English alphabets characters, and lower-casing all of the characters. Each of the tweets could be classified as one of the three classes: ``LeftTroll", ``RightTroll", or ``OtherTroll", where the left and right troll users corresponds to the people who support left-wing or right-wing in US politics.
+The dataset used in this report involves 223K tweets published by 175 users, randomly chosen from 3 million Russian Troll tweets. \cite{boatwrighttroll} The tweets have been preprocessed by removing the non-English alphabets characters, and lower-casing all of the characters.
 
 The ``medium" dataset will be used for applying the machine learning methods and gaining knowledge in the interest of speed. In the dataset, the ``best50" features are used as the initial features, where the terms with the highest Mutual Information or Chi-Square values for each class were selected.
 
@@ -53,13 +56,13 @@ How to improve the features for NB for identifying trolls?
       NB &  60.1167\\
       \hline
 \end{tabular}
-\caption{Evaluating Zero-R, One-R, \& NB with development set}\label{table1}
+\caption{Evaluating Zero-R, One-R, and NB with development set}\label{table1}
  \end{center}
 \end{table}
 
 \subsection{Benchmark algorithms}
 
-\paragraph{}Comparing with a few benchmark algorithms: Support Vector Machine (SVM), Decision Tree (DT), and Logistic Regression (LR), NB does not perform as good as these methods. The lower accuracy may be because of the ``NB Conditional Independence Assumption", which assumes the independence between the attributes. 
+\paragraph{} Comparing with a few benchmark algorithms: Support Vector Machine (SVM), Decision Tree (DT), and Logistic Regression (LR), NB does not perform as good as these methods. The lower accuracy may be because of the ``NB Conditional Independence Assumption", which assumes the independence between the attributes. This issue could be solved by using ``Naive Bayes with Single Machine Gaussian", which is more robust for the attributes dependent on each other. \cite{john1995estimating}
 
 However, NB still has a very competitive accuracy. Moreover, it is extremely fast to make predictions and easy to change probabilities when new data becomes available.
 
@@ -74,7 +77,7 @@ However, NB still has a very competitive accuracy. Moreover, it is extremely fas
       NB & 60.1167 \\
       \hline
 \end{tabular}
-\caption{NB models with Numeric and Binary attributes}\label{table3}
+\caption{Evaluating SVM, LR, and NB with development set}\label{table3}
  \end{center}
 \end{table}
 
@@ -82,7 +85,7 @@ However, NB still has a very competitive accuracy. Moreover, it is extremely fas
 
 \paragraph{} As shown in Table 3 below, the NB model is more effective on the ``OtherTroll" class, which has the highest F-Measure (the harmonic mean of precision and recall) among all three classes. 
 
-The three classes have similar precision, but ``LeftTroll" and ``RightTroll" have low recall, which indicates that many ``LeftTroll" and ``RightTroll" instances were classified incorrectly.
+The three classes have similar precision, but ``LeftTroll" and ``RightTroll" have lower recalls, which indicates that many ``LeftTroll" and ``RightTroll" instances were classified incorrectly.
 
 \begin{table}[!htbp]
  \begin{center}
@@ -105,12 +108,12 @@ By analysing the confusion matrix below, it could founded that the ``LeftTroll" 
 \includegraphics[scale=0.65]{"conf-matrix"}
 \captionof{figure}{Confusion matrix of the NB model} 
 
-\paragraph{} Here are a few examples of incorrectly classified tweets:
+\paragraph{} Here are a few examples of incorrectly classified tweets from two categories:
 
 \begin{enumerate}
 
 \item
-\textbf{``LeftTroll" as ``OtherTroll"}:
+\textbf{C1: ``LeftTroll" as ``OtherTroll"}:
 
 ID-2125: Police in the US aren't racists? Yeah right. Ôø$\Omega$ https://t.co/PfG3hJAaHR \\
 
@@ -120,7 +123,7 @@ ID-2267: Black teenage girl sues white police officer for brutal assault in car 
 
 
 \item
-\textbf{``RightTroll" as ``LeftTroll"}:
+\textbf{C2: ``RightTroll" as ``LeftTroll"}:
 
 ID-257: So the only good people in this world are black transexual lesbians in a wheelchair. @steve0423 Check this \#libtard https://t.co/tkOEWi5qvU \\
 
@@ -130,9 +133,9 @@ ID-2315: ’@KdubSoSolid Why is dating black supermodels gross? I strongly disag
 
 \end{enumerate}
 
-\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which leads to a higher conditional probability within the NB classifier.
+\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which could implies a higher conditional probability within the NB classifier.
 
-\paragraph{} For the examples in the examples in the second category, a possible cause of the misclassification is that those tweets contain the terms ``black", `white", or both. Similar to the reason above, these two terms will ******
+\paragraph{} For the examples in the examples in the second category, a possible cause of the misclassification is that those tweets contain the terms ``black", `white", or both, where ``LeftTroll" has a much higher mean frequency than the other two classes. (Table 4) Similar to the reason above, these two terms may mislead the NB classifier when classifying these particular tweets.
 
 \begin{table}[!htbp]
  \begin{center}
@@ -153,7 +156,7 @@ ID-2315: ’@KdubSoSolid Why is dating black supermodels gross? I strongly disag
 \section{Improving features for NB}
 \subsection{Removing ``tweet-id" and ``user-id"}
 
-\paragraph{} According to Table 3 and Figure 2 below, it seems that``tweet-id" has almost no impact on the performance of the NB model, and the proportion of the instances of each class seems to be evenly distributed over the ranges of ``tweet-id". For the ``user-id" feature, as all of the tweets from a single user appear in the same dataset, even if it is converted into a nominal feature, it could not provide any information about the user in the development or test set when making predictions. Therefore, both ``tweet-id" and ``user-id" should be removed.
+\paragraph{} According to Table 5 and Figure 2 below, it seems that``tweet-id" has almost no impact on the performance of the NB model, and the proportion of the instances of each class seems to be evenly distributed over the ranges of ``tweet-id". For the ``user-id" feature, as all of the tweets from a single user appear in the same dataset, even if it is converted into a nominal feature, it could not provide any information about the user in the development or test set when making predictions. Therefore, both ``tweet-id" and ``user-id" should be removed.
 
 \begin{table}[!htbp]
  \begin{center}
@@ -192,6 +195,8 @@ ID-2315: ’@KdubSoSolid Why is dating black supermodels gross? I strongly disag
 \paragraph{} By converting the attribute type, the accuracy of the NB classifier has increased by more about 5.3\%, which strongly supports that the term frequencies are not important for the NB classifier. It is better for the NB classifier to focus on whether the term occurs in the tweet, instead of its frequency, which means that, when the classifier is making predictions, the conditional probability for each class should not be affected by the term frequencies.
 
 \section{Conclusion}
+\paragraph{} In conclusion, some knowledge about the two knowledge problems has been gained. NB might be useful for classifying trolls as compared with the baseline and benchmark algorithms used above, and it is most effective on classifying the ``OtherTroll" class (with recall 0.971). The NB classifier does not need features ``tweet-id" and ``user-id", and it is more suitable for NB to use binary attributes instead of numeric attributes (term frequencies).
 
+\printbibliography
 
 \end{document}
