@@ -2,6 +2,7 @@
 \usepackage{colacl}
 \sloppy
 \usepackage[backend=bibtex,sorting=none,style=ieee]{biblatex}
+\usepackage{amsmath,mathtools,datetime,multicol,tabu,diagbox}
 \addbibresource{mybib.bib}
 \usepackage{multirow}
 \usepackage{graphicx}
@@ -73,7 +74,7 @@ However, NB still has a very competitive accuracy. Moreover, it is extremely fas
       Model & Accuracy(\%) \\
       \hline\hline
      SVM & 60.1666 \\
-      LR &  \\
+      LR &   62.4746\\
       NB & 60.1167 \\
       \hline
 \end{tabular}
@@ -102,7 +103,7 @@ The three classes have similar precision, but ``LeftTroll" and ``RightTroll" hav
  \end{center}
 \end{table}
 
-By analysing the confusion matrix below, it could founded that the ``LeftTroll" tweets tends to be incorrectly classified as ``OtherTroll" more than ``RightTroll", and more than one third of the ``RightTroll" tweets were classified as ``LeftTroll".
+By analysing the confusion matrix below, it was found that the ``LeftTroll" tweets tends to be incorrectly classified as ``OtherTroll" more than ``RightTroll", and more than one third of the ``RightTroll" tweets were misclassified as ``LeftTroll".
 
 
 \includegraphics[scale=0.65]{"conf-matrix"}
@@ -133,7 +134,14 @@ ID-2315: ’@KdubSoSolid Why is dating black supermodels gross? I strongly disag
 
 \end{enumerate}
 
-\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which could implies a higher conditional probability within the NB classifier.
+\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which could imply a higher conditional probability within the NB classifier if the average tweet length of the three classes are similar, since:
+
+\begin{equation*}
+\begin{split} 
+P(\text{term1} | \text{class1}) &= \frac{(\text{mean freq}) * (\text{\# instances in class1})}{\text{total \# words in class1}} \\
+& = \frac{\text{mean freq}}{\text{average tweet length of class1}}
+\end{split}
+\end{equation*}
 
 \paragraph{} For the examples in the examples in the second category, a possible cause of the misclassification is that those tweets contain the terms ``black", `white", or both, where ``LeftTroll" has a much higher mean frequency than the other two classes. (Table 4) Similar to the reason above, these two terms may mislead the NB classifier when classifying these particular tweets.
 
