@@ -103,8 +103,51 @@ By analysing the confusion matrix below, it could founded that the ``LeftTroll" 
 
 
 \includegraphics[scale=0.65]{"conf-matrix"}
-\captionof{figure}{Confusion matrix of the NB model}
+\captionof{figure}{Confusion matrix of the NB model} 
 
+\paragraph{} Here are a few examples of incorrectly classified tweets:
+
+\begin{enumerate}
+
+\item
+\textbf{``LeftTroll" as ``OtherTroll"}:
+
+ID-2125: Police in the US aren't racists? Yeah right. Ôø$\Omega$ https://t.co/PfG3hJAaHR \\
+
+ID-2236: Stop this Police Madness!  https://t.co/ESGJf6otNu \\
+
+ID-2267: Black teenage girl sues white police officer for brutal assault in car park \#BTPVideo  https://t.co/MGn2HePHBf https://t.co/AgbwT8WPcK
+
+
+\item
+\textbf{``RightTroll" as ``LeftTroll"}:
+
+ID-257: So the only good people in this world are black transexual lesbians in a wheelchair. @steve0423 Check this \#libtard https://t.co/tkOEWi5qvU \\
+
+ID-2269: Do you think if there are more white people than black it means racism?  \#OscarHasNoColor \\
+
+ID-2315: ’@KdubSoSolid Why is dating black supermodels gross? I strongly disagree, sir!' \\
+
+\end{enumerate}
+
+\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which leads to a higher conditional probability within the NB classifier.
+
+\paragraph{} For the examples in the examples in the second category, a possible cause of the misclassification is that those tweets contain the terms ``black", `white", or both. Similar to the reason above, these two terms will ******
+
+\begin{table}[!htbp]
+ \begin{center}
+\begin{tabular}{| l | l | l | l |}
+      \hline
+      Term & LeftTroll & RightTroll & OtherTroll \\
+      \hline\hline
+      black & 0.0502 & 0.0125 & 0.0047 \\
+      white & 0.0381 & 0.0193 & 0.0051 \\
+      police & 0.0191 & 0.0165 & 0.0431 \\
+      \hline
+\end{tabular}
+\caption{``Mean" frequency of the terms in NB model}\label{table2}
+ \end{center}
+\end{table}
 
 
 \section{Improving features for NB}

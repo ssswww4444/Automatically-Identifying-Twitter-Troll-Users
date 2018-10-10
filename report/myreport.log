@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.27)  11 OCT 2018 00:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.27)  11 OCT 2018 02:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -382,6 +382,9 @@ File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 LaTeX Warning: Label `table3' multiply defined.
 
 
+LaTeX Warning: Label `table2' multiply defined.
+
+
 LaTeX Warning: Label `table3' multiply defined.
 
 )
@@ -481,12 +484,75 @@ Package caption Warning: \captionsetup{type*=...} or \captionof
 (caption)                outside box or environment on input line 106.
 See the caption package documentation for explanation.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+[]\OT1/cmr/m/n/10.95 ID-2125: Po-lice in the US aren't
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+\OT1/cmr/m/n/10.95 racists? Yeah right. []O^^\$
+$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+
+Underfull \hbox (badness 5607) in paragraph at lines 117--118
+[]\OT1/cmr/m/n/10.95 ID-2236: Stop this Po-lice Mad-ness!
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+\OT1/cmr/m/n/10.95 #BT-PVideo https://t.co/MGn2HePHBf
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 125--126
+\OT1/cmr/m/n/10.95 world are black tran-sex-ual les-bians in
+ []
+
+
+Underfull \hbox (badness 1721) in paragraph at lines 125--126
+\OT1/cmr/m/n/10.95 a wheelchair. @steve0423 Check this
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+
+ []
+
+
+Underfull \hbox (badness 2564) in paragraph at lines 129--130
+\OT1/cmr/m/n/10.95 black su-per-mod-els gross? I strongly
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
 <"tid-class".png, id=11, 468.75125pt x 190.7125pt>
 File: "tid-class".png Graphic file (type png)
 <use "tid-class".png>
-Package pdftex.def Info: "tid-class".png  used on input line 129.
+Package pdftex.def Info: "tid-class".png  used on input line 172.
 (pdftex.def)             Requested size: 187.49716pt x 76.28363pt.
-[2 <./conf-matrix.png> <./tid-class.png>] (./myreport.aux)
+[2 <./conf-matrix.png>] [3
+
+ <./tid-class.png>] (./myreport.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -495,20 +561,20 @@ Package logreq Info: Writing requests to 'myreport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 9230 strings out of 492649
- 164449 string characters out of 6129622
+ 9231 strings out of 492649
+ 164457 string characters out of 6129622
  430926 words of memory out of 5000000
- 13034 multiletter control sequences out of 15000+600000
+ 13035 multiletter control sequences out of 15000+600000
  8820 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,13n,39p,882b,746s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on myreport.pdf (2 pages, 76431 bytes).
+Output written on myreport.pdf (3 pages, 81741 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
