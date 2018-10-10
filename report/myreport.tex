@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage{colacl}
+\sloppy
+\usepackage[backend=bibtex,sorting=none,style=ieee]{biblatex}
+\addbibresource{mybib.bib}
+\usepackage{multirow}
+\usepackage{graphicx}
+\graphicspath{ {} }
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\title{Twitter Trolls and the Tweeters who Love them}
+\author
+{Anonymous}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\paragraph{}
+The goal of this report is to demonstrate the knowledge about the problem of automatically classifying the trolls based on the text of the tweets. In this report, a knowledge problems will be raised, and a few machine learning methods will be discussed and applied over a dataset comprising a number of "troll" tweets to gain knowledge about this problem.
+
+\subsection{Dataset}
+\paragraph{}
+The dataset used in this report involves 223K tweets published by 175 users, randomly chosen from 3 million Russian Troll tweets. The tweets have been preprocessed by removing the non-English alphabets characters, and lower-casing all of the characters. Each of the tweets could be classified as one of the three classes: ``LeftTroll", ``RightTroll", or ``OtherTroll", where the left and right troll users corresponds to the people who support left-wing or right-wing in US politics.
+
+The ``medium" dataset will be used for applying the machine learning methods and gaining knowledge in the interest of speed. In the dataset, the ``best50" features are used as the initial features, where the terms with the highest Mutual Information or Chi-Square values for each class were selected.
+
+\subsection{Knowledge Problem}
+
+\paragraph{} There could be many interesting knowledge problems about automatically identify trolls. However, this paper will only be focusing on two knowledge problems mainly based on the Naive Bayes (NB) method:
+\begin{enumerate}
+\item
+Is NB useful for classifying the trolls?  Why or why not?
+\item
+How to improve the features for NB for identifying trolls?
+\end{enumerate}
+\section{NB usefulness}
+
+\subsection{Baseline algorithms}
+\paragraph{} The usefulness of NB could be demonstrated by comparing with two baseline algorithms: Zero-R and One-R. For this dataset, Zero-R is classifying all instances to the ``OtherTroll" class, since it is the majority class in the training set, and One-R is using the rules associated with ``user-id". As shown in Table 1 below, NB has a much higher accuracy than both of the baseline algorithms.
+
+\begin{table}[!htbp]
+ \begin{center}
+\begin{tabular}{| l | l |}
+      \hline
+      Evaluation Metric & Accuracy(\%) \\
+      \hline\hline
+      Zero-R & 35.785 \\
+      One-R & 25.5526 \\
+      NB &  60.1167\\
+      \hline
+\end{tabular}
+\caption{Evaluating Zero-R, One-R, \& NB with development set}\label{table1}
+ \end{center}
+\end{table}
+
+\subsection{Benchmark algorithms}
+
+\paragraph{}Comparing with a few benchmark algorithms: Support Vector Machine (SVM), Decision Tree (DT), and Logistic Regression (LR), NB does not perform as good as these methods. The lower accuracy may be because of the ``NB Conditional Independence Assumption", which assumes the independence between the attributes. 
+
+However, NB still has a very competitive accuracy. Moreover, it is extremely fast to make predictions and easy to change probabilities when new data becomes available.
+
+\begin{table}[!htbp]
+ \begin{center}
+\begin{tabular}{| l | l |}
+      \hline
+      Model & Accuracy(\%) \\
+      \hline\hline
+     SVM & 60.1666 \\
+      LR &  \\
+      NB & 60.1167 \\
+      \hline
+\end{tabular}
+\caption{NB models with Numeric and Binary attributes}\label{table3}
+ \end{center}
+\end{table}
+
+\subsection{NB for three classes}
+
+\paragraph{} As shown in Table 3 below, the NB model is more effective on the ``OtherTroll" class, which has the highest F-Measure (the harmonic mean of precision and recall) among all three classes. 
+
+The three classes have similar precision, but ``LeftTroll" and ``RightTroll" have low recall, which indicates that many ``LeftTroll" and ``RightTroll" instances were classified incorrectly.
+
+\begin{table}[!htbp]
+ \begin{center}
+\begin{tabular}{| l | l | l | l |}
+      \hline
+      \specialcell{Class} & Precision & Recall & F-Measure \\
+      \hline\hline
+      Left & 0.534 & 0.491 & 0.512 \\
+      Right & 0.615 & 0.306 & 0.408  \\
+      Other & 0.632 & 0.971 & 0.765 \\
+      \hline
+\end{tabular}
+\caption{NB models with Numeric and Binary attributes}\label{table3}
+ \end{center}
+\end{table}
+
+By analysing the confusion matrix below, it could founded that the ``LeftTroll" tweets tends to be incorrectly classified as ``OtherTroll" more than ``RightTroll", and more than one third of the ``RightTroll" tweets were classified as ``LeftTroll".
+
+
+\includegraphics[scale=0.65]{"conf-matrix"}
+\captionof{figure}{Confusion matrix of the NB model}
+
+
+
+\section{Improving features for NB}
+\subsection{Removing ``tweet-id" and ``user-id"}
+
+\paragraph{} According to Table 3 and Figure 2 below, it seems that``tweet-id" has almost no impact on the performance of the NB model, and the proportion of the instances of each class seems to be evenly distributed over the ranges of ``tweet-id". For the ``user-id" feature, as all of the tweets from a single user appear in the same dataset, even if it is converted into a nominal feature, it could not provide any information about the user in the development or test set when making predictions. Therefore, both ``tweet-id" and ``user-id" should be removed.
+
+\begin{table}[!htbp]
+ \begin{center}
+\begin{tabular}{| l | l |}
+      \hline
+      Attribute & Accuracy(\%) \\
+      \hline\hline
+      With ``tweet-id" & 60.1167 \\
+      Without ``tweet-id" & 60.1274 \\
+      \hline
+\end{tabular}
+\caption{NB model with \& without ``tweet-id"}\label{table2}
+ \end{center}
+\end{table}
+
+\includegraphics[scale=0.4]{"tid-class"}
+\captionof{figure}{Proportion of the instances of three classes over ``tweet-id" in development set (blue: LeftTroll, red: RightTroll, cyan: OtherTroll)}
+
+\subsection{Numeric to binary}
+
+\paragraph{} After removing the two id attributes, the NB model could be further improved by converting the numeric attributes (term frequencies as values) into binary attributes, which only indicates the presence or absence of a term in each tweet.
+\begin{table}[!htbp]
+ \begin{center}
+\begin{tabular}{| l | l |}
+      \hline
+      Attribute type & Accuracy(\%) \\
+      \hline\hline
+      Numeric & 60.1274 \\
+      Binary & 65.4767 \\
+      \hline
+\end{tabular}
+\caption{NB models with Numeric and Binary attributes}\label{table3}
+ \end{center}
+\end{table}
+
+\paragraph{} By converting the attribute type, the accuracy of the NB classifier has increased by more about 5.3\%, which strongly supports that the term frequencies are not important for the NB classifier. It is better for the NB classifier to focus on whether the term occurs in the tweet, instead of its frequency, which means that, when the classifier is making predictions, the conditional probability for each class should not be affected by the term frequencies.
+
+\section{Conclusion}
+
+
+\end{document}
