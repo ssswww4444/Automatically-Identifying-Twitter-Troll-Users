@@ -22,9 +22,9 @@
 
 \paragraph{} The recent troll detection systems are mainly based on Recurrent Neural Networks (RNN) with bidirectional Long Short-Term Memory (LSTM) \cite{cuestadetecting}, or Support Vector Machine (SVM) with sentiment analysis \cite{seah2015troll}, etc.
 
-The goal of this report is to demonstrate the knowledge about how to classify the troll tweets based on their text automatically. Each of the tweets could be classified as one of the three classes: ``LeftTroll", ``RightTroll", or ``OtherTroll", where the left and right troll users correspond to the people who support left-wing or right-wing in US politics.
+The goal of this report is to demonstrate the knowledge about how to classify the troll tweets based on their text automatically. Each of the tweets could be classified as one of the three classes: ``LeftTroll", ``RightTroll", or ``OtherTroll", where the left and right troll users correspond to the people who support left-wing and right-wing in US politics respectively.
 
-In this report, two knowledge problems will be raised, and a few machine learning methods will be discussed and applied over a dataset comprising a number of ``troll" tweets to gain knowledge about the problems.
+In this report, two knowledge problems will be raised, and a few machine learning methods will be discussed and applied over a dataset comprised of ``troll" tweets to gain knowledge about the problems.
 
 \subsection{Dataset}
 \paragraph{}
@@ -200,7 +200,7 @@ P(\text{term1} | \text{class1}) &= \frac{(\text{mean freq}) * (\text{\# instance
  \end{center}
 \end{table}
 
-\paragraph{} By converting the attribute type, the accuracy of the NB classifier has increased by more about 5.3\%, which strongly supports that the term frequencies are not important for the NB classifier. It is better for the NB classifier to focus on whether the term occurs in the tweet, instead of its frequency, which means that, when the classifier is making predictions, the conditional probability for each class should not be affected by the term frequencies.
+\paragraph{} By converting the attribute type, the accuracy of the NB classifier has increased by more about 5.3\%, which strongly supports that the term frequencies are not crucial for the NB classifier for classifying tweets. It is better for the NB classifier to focus on whether the term occurs in the tweet, instead of its frequency, which means that, when the classifier is making predictions, the conditional probability for each class should not be affected by the term frequencies.
 
 \section{Conclusion}
 \paragraph{} In conclusion, some knowledge about the two knowledge problems has been gained. NB might be useful for classifying trolls as compared with the baseline and benchmark algorithms used above, and it is most effective on classifying the ``OtherTroll" class (with recall 0.971). The NB classifier does not need features ``tweet-id" and ``user-id", and it is more suitable for NB to use binary attributes instead of numeric attributes (term frequencies).
