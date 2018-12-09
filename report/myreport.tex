@@ -63,9 +63,9 @@ How to improve the features for NB for identifying trolls?
 
 \subsection{Benchmark algorithms}
 
-\paragraph{} Comparing with a few benchmark algorithms: Support Vector Machine (SVM), Decision Tree (DT), and Logistic Regression (LR), NB does not perform as good as these methods. The lower accuracy may be because of the ``NB Conditional Independence Assumption", which assumes the independence between the attributes. This issue could be solved by using ``Naive Bayes with Single Machine Gaussian", which is more robust for the attributes dependent on each other. \cite{john1995estimating}
+\paragraph{} Comparing with two benchmark algorithms: Support Vector Machine (SVM) and Logistic Regression (LR), NB does not perform as good as these methods. The lower accuracy of NB may be because of its ``NB Conditional Independence Assumption", which assumes the independence between the attributes. This issue could be solved by using ``Naive Bayes with Single Machine Gaussian", which is more robust for the attributes dependent on each other. \cite{john1995estimating}
 
-However, NB still has a very competitive accuracy. Moreover, it is extremely fast to make predictions and easy to change probabilities when new data becomes available.
+Nonetheless, NB still has a very competitive accuracy. Moreover, it is extremely fast to make predictions and easy to change probabilities when new data becomes available.
 
 \begin{table}[!htbp]
  \begin{center}
@@ -134,7 +134,7 @@ ID-2315: ’@KdubSoSolid Why is dating black supermodels gross? I strongly disag
 
 \end{enumerate}
 
-\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which could imply a higher conditional probability within the NB classifier if the average tweet lengths of the three classes are similar, since:
+\paragraph{} For the tweet examples in the first category above, the three ``LeftTroll" tweets were classified as ``OtherTroll". One of the reasons may be that the term ``police" has a higher mean value in the training set (Table 4), which could imply that it has a higher conditional probability within the NB classifier if the average tweet lengths of the three classes are similar, since:
 
 \begin{equation*}
 \begin{split} 
@@ -143,7 +143,7 @@ P(\text{term1} | \text{class1}) &= \frac{(\text{mean freq}) * (\text{\# instance
 \end{split}
 \end{equation*}
 
-\paragraph{} For the examples in the examples in the second category, a possible cause of the misclassification is that those tweets contain the terms ``black", `white", or both, where ``LeftTroll" has a much higher mean frequency than the other two classes. (Table 4) Similar to the reason above, these two terms may mislead the NB classifier when classifying these particular tweets.
+\paragraph{} For the examples in the examples in the second category, a possible cause of the misclassification is that those tweets contain the terms ``black", `white", or both, where ``LeftTroll" has a much higher mean frequency than the other two classes. (Table 4) Similar to the reason above, these two terms may have misled the NB classifier when classifying these particular tweets.
 
 \begin{table}[!htbp]
  \begin{center}
@@ -164,7 +164,7 @@ P(\text{term1} | \text{class1}) &= \frac{(\text{mean freq}) * (\text{\# instance
 \section{Improving features for NB}
 \subsection{Removing ``tweet-id" and ``user-id"}
 
-\paragraph{} According to Table 5 and Figure 2 below, it seems that``tweet-id" has almost no impact on the performance of the NB model, and the proportion of the instances of each class seems to be evenly distributed over the ranges of ``tweet-id". For the ``user-id" feature, as all of the tweets from a single user appear in the same dataset, even if it is converted into a nominal feature, it could not provide any information about the user in the development or test set when making predictions. Therefore, both ``tweet-id" and ``user-id" should be removed.
+\paragraph{} According to Table 5 and Figure 2 below, it seems that``tweet-id" has almost no impact on the performance of the NB model, and the proportion of the instances of each class seems to be evenly distributed over the ranges of ``tweet-id". For the ``user-id" feature, as all of the tweets from a single user appear in the same dataset, even if it is converted into a nominal feature, it could not provide any information about the users in the development or test set when making predictions. Therefore, both ``tweet-id" and ``user-id" should be removed.
 
 \begin{table}[!htbp]
  \begin{center}
@@ -185,7 +185,7 @@ P(\text{term1} | \text{class1}) &= \frac{(\text{mean freq}) * (\text{\# instance
 
 \subsection{Numeric to binary}
 
-\paragraph{} After removing the two id attributes, the NB model could be further improved by converting the numeric attributes (term frequencies as values) into binary attributes, which only indicates the presence or absence of a term in each tweet.
+\paragraph{} After removing the two id attributes, the NB model could be further improved by converting the numeric attributes (term frequencies as values) into binary attributes, which only indicates the presence or absence of the terms in each tweet.
 \begin{table}[!htbp]
  \begin{center}
 \begin{tabular}{| l | l |}
@@ -200,7 +200,7 @@ P(\text{term1} | \text{class1}) &= \frac{(\text{mean freq}) * (\text{\# instance
  \end{center}
 \end{table}
 
-\paragraph{} By converting the attribute type, the accuracy of the NB classifier has increased by more about 5.3\%, which strongly supports that the term frequencies are not crucial for the NB classifier for classifying tweets. It is better for the NB classifier to focus on whether the term occurs in the tweet, instead of its frequency, which means that, when the classifier is making predictions, the conditional probability for each class should not be affected by the term frequencies.
+\paragraph{} By converting the attribute type, the accuracy of the NB classifier has increased by more about 5.3\%, which strongly supports that the term frequencies are not crucial for the NB classifier for classifying tweets. It is better for the NB classifier to focus on whether the term occurs in the tweet, instead of its frequency, in other words, when the classifier is making predictions, the conditional probability for each class should not be affected by the term frequencies.
 
 \section{Conclusion}
 \paragraph{} In conclusion, some knowledge about the two knowledge problems has been gained. NB might be useful for classifying trolls as compared with the baseline and benchmark algorithms used above, and it is most effective on classifying the ``OtherTroll" class (with recall 0.971). The NB classifier does not need features ``tweet-id" and ``user-id", and it is more suitable for NB to use binary attributes instead of numeric attributes (term frequencies).
